@@ -6,14 +6,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Zepto' });
 });
 
-/* GET wiki. */
+/* GET wiki.
 router.get('/wiki', function(req, res) {
   res.redirect('/wiki/Index');
-});
+});*/
 
-/* GET wiki page. */
+/* GET wiki page.
 router.get('/wiki/:page', function(req, res) {
   res.render('wiki_' + req.params.page);
-});
+});*/
 
 module.exports = router;

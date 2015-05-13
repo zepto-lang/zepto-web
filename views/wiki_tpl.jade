@@ -1,8 +1,17 @@
 extends layout
 
 block content
-  img(class='banner' src='/images/zepto_logo.png')
-  .right#nav
+  img(class='banner', src='/images/zepto_logo.png')
+  
+  ul(id='nav', class='top-right')
+    li: a(href='./Index') Index
+    li: a(href='./Quickstart') Getting Started
+    li: a(href='./IO') IO
+    li: a(href='./Math') Math
+    li: a(href='./Contributing') Contributing
+    li: a(href='./TODO') TODO
+    li: a(href='./Advanced') Advanced Features Already Implemented
+
   .wiki
     block text
   
