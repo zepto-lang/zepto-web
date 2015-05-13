@@ -10,7 +10,8 @@ a {
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: 300;
+  font-size: 22px;
 }
 
 .banner {
@@ -19,6 +20,10 @@ h1 {
 
 .text {
   width: 600px;
+}
+
+.wiki {
+  width: 60%;
 }
 
 .spaced {
@@ -41,6 +46,9 @@ h1 {
 	padding-left: 5px;
   }
   .text {
+       width: 300px;
+  }  
+  .wiki {
        width: 300px;
   }  
   .small.middle {
