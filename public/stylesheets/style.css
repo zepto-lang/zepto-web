@@ -5,4 +5,23 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+.spaced {
+  margin-top: 5%;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.small.middle {
+  margin-left: 40%;
+  width: 20%;
+  text-align: center;
 }
