@@ -41,8 +41,10 @@ block text
       | (close-output-file output-file)
 
   p
-    | What you get back from the two open functions is an `IO Port`, meaning
-    | the general type is the same. This in turn means that something like this 
+    | What you get back from the two open functions is an 
+    span: code IO Port
+    |  , meaning
+    | the general type is the same. This in turn means that something like  
     span: code(class='language-scheme') (write "foo" (open-input-file "bar"))
     |  is not yielding a type error, but rather a string representing the IO error.
     | Closing is done by invoking the analogous call.
