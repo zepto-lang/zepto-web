@@ -3,14 +3,22 @@ extends layout
 block content
   img(class='banner', src='/images/zepto_logo.png')
   
-  ul(id='nav', class='top-right')
-    li: a(href='./Index') Index
-    li: a(href='./Quickstart') Getting Started
-    li: a(href='./IO') IO
-    li: a(href='./Math') Math
-    li: a(href='./Contributing') Contributing
-    li: a(href='./TODO') TODO
-    li: a(href='./Advanced') Advanced Features Already Implemented
+  .top-right#nav
+    h2 Navigation
+    ul(id='nav-list')
+      li Pages
+      li: a(href='./Index') Index
+      li: a(href='./Quickstart') Getting Started
+      li: a(href='./IO') IO
+      li: a(href='./Math') Math
+      li: a(href='./Contributing') Contributing
+      li: a(href='./TODO') TODO
+      li: a(href='./Advanced') Advanced Features
+      li
+      li
+      li External resources
+      li: a(href="https://github.com/zepto-lang") Zepto On Github
+      li: a(href="http://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/") MIT/GNU Scheme Docs
 
   .wiki
     block text

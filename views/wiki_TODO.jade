@@ -1,0 +1,31 @@
+extends wiki_tpl
+
+block text
+  h1 TODO
+
+  p
+    | There are a couple of features that are to be implemented at some point or another.
+    | Here is a quick and dirty list of everything I have in mind ordered by informed guesses
+    | about each points' scope:
+
+  b Small:
+  ul 
+    li fix single number expression (in the repl 1.5lasd is parsed as 1.5)
+
+  b Medium:
+  ul
+    li Profiling shows getting variables(especially namespaced vars) takes ages(~86% of execution time). Fix that.
+    li Make macros more robust
+    li Fix continuations
+    li Make cl libraries work
+    li Hashtables (SRFI 69)
+    li add traceback to errors
+
+  b Big:
+  ul
+    li Foreign Function Interface to C and Haskell
+    li Wrap OpenGL (https://github.com/haskell-opengl/OpenGL)
+    li A Compiler
+      ul: li with backend targetting gpu/ptx (maybe par-define?)
+    li A solid actor-based concurrency system (+ transactional memory)
+
