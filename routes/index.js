@@ -7,8 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET wiki. */
-router.get('/wiki', function(req, res, next) {
-  res.redirect('https://github.com/zepto-lang/zepto/wiki');
+router.get('/wiki', function(req, res) {
+  res.redirect('/wiki/Index');
+});
+
+/* GET wiki page. */
+router.get('/wiki/:page', function(req, res) {
+  res.render('wiki_' + req.params.page);
 });
 
 module.exports = router;
