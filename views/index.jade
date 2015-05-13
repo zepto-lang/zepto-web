@@ -1,8 +1,16 @@
 extends layout
 
 block content
-  h1= title + '  (n)'
-  p Welcome to zeptos website. It is not anything yet, but it will hopefully be.
-  p In the meantime, how about checking out the 
-    a(href='https://github.com/zepto-lang//') github repositories?
+  img(class='banner' src='https://raw.githubusercontent.com/zepto-lang/logos/master/zepto_logo.png')
+  .text
+    p. 
+      Welcome. This website is about zepto, a small programming
+      language. It is a Scheme derivative and compliant to most
+      of R5RS. It is relaxed in those terms, though.
+    p This website is currently a work in progress.
+    p
+      | I suggest you check out the 
+      a(href='https://github.com/zepto-lang//') github repositories 
+      | while you wait.
+  
   p(class='spaced small middle') Zepto (c) 2015 Veit Heller
