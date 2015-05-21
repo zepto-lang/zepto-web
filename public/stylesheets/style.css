@@ -120,10 +120,10 @@ h2 {
 	#responsive-nav:before {
   		content: "";
   		position: absolute;
-  		top: 1em;
-  		left: 3em;
+  		top: 1.5em;
+  		left: 2em;
   		width: 1.5em;
-  		height: 0.2em;
+  		height: 0.3em;
   		border-top: 0.75em double #006f99;
   		border-bottom: 0.25em solid #006f99;
 	}
