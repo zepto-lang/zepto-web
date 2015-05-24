@@ -9,6 +9,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Zepto' });
 });
 
+/* GET install. */
+router.get('/install', function(req, res, next) {
+  res.render('install');
+});
+
 /* GET wiki. */
 router.get('/wiki', function(req, res) {
   res.redirect('/wiki/Index');
