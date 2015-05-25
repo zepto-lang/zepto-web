@@ -2,16 +2,34 @@ extends web_tpl
 
 block text
   p 
-    | Welcome. This website is about zepto, a small programming 
-    | language. It is a Scheme derivative and compliant to most 
-    | of R
+    | is a small functional language. It is a Scheme 
+    | derivative and compliant to most of R
     sup 5
-    | RS. It is relaxed in those terms, though. 
+    | RS. It is relaxed in those terms, though.
+  .spacing
+  p
+    | How zepto looks? I am glad you ask.
+    pre: code(class='language-scheme')[(display x) | x <- ["h" "e" "y" ", there!\n"]]
+    | This is a list comprehension. If you are coming
+    | from Python, Haskell or Erlang, it should look
+    | somewhat familiar to you.
+    sup 1
+  small 
+    | 1: For those of you who do not know what this does, 
+    | it will print 
+    span: code hey, there!
+    |  to the standard output.
   p This website is currently a work in progress.
   p
     | I suggest you check out the 
     a(href='https://github.com/zepto-lang/') github repositories 
-    | while you wait. There is also a little 
+    | while you wait. It gets updated frequently and new code is added
+    | almost on a daily basis. 
+  p
+    | There is also a little 
     a(href='/wiki') wiki 
     | that explains it all. 
-    a(href='/install') Installation instructions are located here.
+    a(href='/install') Installation instructions are located here
+    |, if you would like to tinker a bit.
+  link(rel='stylesheet', href='/stylesheets/prism.css')
+  script(src='/javascript/prism.js')
