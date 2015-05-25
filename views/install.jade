@@ -1,35 +1,31 @@
-extends layout
+extends web_tpl
 
-block content
-  img(class='banner' src='/images/zepto_logo.png')
+block text
   h1 Getting zepto
-  .text
-    p 
-      | Zepto is based on Haskell. Currently, you will have to build 
-      | from source, but if you have GHC/cabal already installed, that 
-      | should not be a problem. If you have not, you will have 
-      a(href='https://www.haskell.org/platform/') to install the Haskell platform 
-      | first.
-    p 
-      | If you have done so, run 
-      span: code make 
-      | or 
-      span: code cabal install 
-      | in your terminal and zepto is ready.
-    h2 Syntax Highlighting
-    p
-      | There is a 
-      a(href='https://github.com/zepto-lang/vim-zepto') vim plugin 
-      | that provides zepto-specific syntax-highlighting to vim.
-    p Emacs is up next.
-    h2 Help
-    p
-      | Getting help is easy: just 
-      a(href='mailto:zepto@veitheller.de') ask me 
-      | or 
-      a(href='https://github.com/zepto-lang/zepto/issues') file an issue
-      | . Be sure to look at 
-      a(href='/wiki') the wiki 
-      | first, though.
-  
-  p(class='spaced small middle') Zepto (c) 2015 Veit Heller
+  p 
+    | Zepto is based on Haskell. Currently, you will have to build 
+    | from source, but if you have GHC/cabal already installed, that 
+    | should not be a problem. If you have not, you will have 
+    a(href='https://www.haskell.org/platform/') to install the Haskell platform 
+    | first.
+  p 
+    | If you have done so, run 
+    span: code make 
+    | or 
+    span: code cabal install 
+    | in your terminal and zepto is ready.
+  h2 Syntax Highlighting
+  p
+    | There is a 
+    a(href='https://github.com/zepto-lang/vim-zepto') vim plugin 
+    | that provides zepto-specific syntax-highlighting to vim.
+  p Emacs is up next.
+  h2 Help
+  p
+    | Getting help is easy: just 
+    a(href='mailto:zepto@veitheller.de') ask me 
+    | or 
+    a(href='https://github.com/zepto-lang/zepto/issues') file an issue
+    | . Be sure to look at 
+    a(href='/wiki') the wiki 
+    | first, though.

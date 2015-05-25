@@ -1,21 +1,17 @@
-extends layout
+extends web_tpl
 
-block content
-  img(class='banner' src='/images/zepto_logo.png')
-  .text
-    p 
-      | Welcome. This website is about zepto, a small programming 
-      | language. It is a Scheme derivative and compliant to most 
-      | of R
-      sup 5
-      | RS. It is relaxed in those terms, though. 
-    p This website is currently a work in progress.
-    p
-      | I suggest you check out the 
-      a(href='https://github.com/zepto-lang/') github repositories 
-      | while you wait. There is also a little 
-      a(href='/wiki') wiki 
-      | that explains it all. 
-      a(href='/install') Installation instructions are located here.
-  
-  p(class='spaced small middle') Zepto (c) 2015 Veit Heller
+block text
+  p 
+    | Welcome. This website is about zepto, a small programming 
+    | language. It is a Scheme derivative and compliant to most 
+    | of R
+    sup 5
+    | RS. It is relaxed in those terms, though. 
+  p This website is currently a work in progress.
+  p
+    | I suggest you check out the 
+    a(href='https://github.com/zepto-lang/') github repositories 
+    | while you wait. There is also a little 
+    a(href='/wiki') wiki 
+    | that explains it all. 
+    a(href='/install') Installation instructions are located here.

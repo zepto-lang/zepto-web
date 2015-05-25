@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  img(class='banner', src='/images/zepto_logo.png')
+  
+  .top#links
+      span(id='logo') &zeta;
+      span(id='name') zepto
+      #links-right
+        a(href='/') Index
+        a(href='/install') Installation
+        a(href='/wiki') Wiki
+
+  .wiki
+    block text
+  
+  p(class='spaced small middle') 
+    | Zepto (c) 2015 
+    a(href='https://github.com/hellerve') Veit Heller
+
+
