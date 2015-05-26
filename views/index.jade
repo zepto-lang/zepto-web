@@ -9,15 +9,22 @@ block text
   .spacing
   p
     | How zepto looks? I am glad you ask.
-    pre: code(class='language-scheme')[(display x) | x <- ["h" "e" "y" ", there!\n"]]
-    | This is a list comprehension. If you are coming
+    pre: code(class='language-scheme')[(display x) | x <- [:h :e :y ", there!\n"]]
+    | This is a 
+    a(href='/wiki/Quickstart#listcomp') List Comprehension
+    | . If you are coming
     | from Python, Haskell or Erlang, it should look
     | somewhat familiar to you.
     sup 1
+    |  It uses another construct that is not present in R
+    sup 5
+    | RS, namely 
+    a(href='/wiki/Quickstart#atoms') Atoms
+    | .
   small 
     | 1: For those of you who do not know what this does, 
     | it will print 
-    span: code hey, there!
+    span: code :h:e:y, there!
     |  to the standard output.
   p This website is currently a work in progress.
   p

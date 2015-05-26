@@ -436,7 +436,7 @@ block wiki
       | (list-append '(a) "b") ; appends element or list to list
 
   p
-    | Let's talk about Vectors for a brief moment. Vectors are optimized
+    | Let's move on to Vectors. Vectors are optimized
     | for random access. They are fast, they are small. But they are also
     | less cool than list, because they are only data and cannot become code,
     | except through converting it to a list before. As such, you can use them
@@ -448,6 +448,26 @@ block wiki
     | in the 
     a(href='./Math') Math 
     | chapter.
+
+  h3(id='listcomp') List Comprehensions
+  p
+    | There is another syntax addition to zepto that is a bit more interesting than
+    | Atoms, namely List Comprehensions. They are a way of building lists from different
+    | lists by walking through every element in the existing list and applying some kind
+    | of mutation to it, possibly also filtering those elements.
+
+  p List comprehensions look like this:
+
+  pre
+    code(class='language-scheme')
+      ; [mutation | element-name <- list, optional-filter]
+      [(+ x 1) | x <- [1 2 3 4], (> x 2)] ; this will return [4 5]
+      [(display el) | el <- '(:h "i")] ; this will print :hi and return an empty list
+
+  p
+    | They are a handy construct to express a map-and-filter operation concisely. 
+    | I hope they are as straightforward to you as I deem them to be.
+
 
   h2 Macros
 
