@@ -4,30 +4,34 @@ block wiki
   h1 Getting Started
   p
     | This is supposed to be an introduction into zepto.
-    | If you know Scheme already, you can skip to the 
-    a(href='#atoms') Atoms 
-    | section, which is the only addition 
-    | in terms of syntax so far.
+    | If you know Scheme already, I would advise you to
+    | read through the
+    a(href='./Delta') Syntactic Additions 
+    | article, which details the differences from R
+    sup 5
+    | RS.
 
   h2 Basic syntax
   p
     | The syntax of Lisp derivatives is incredibly simple.
     | It is infamous for having a lot of brackets, but that
     | is for a reason. Expressions are not grouped by binding
-    | power, like in most other languages, but instead in 
+    | power, like in most other languages, but instead by 
     | brackets. Inside a bracket, there has to be a single
-    | statement, such as:
+    | function and its arguments, such as:
 
   pre
     code(class='language-scheme')
-      | (+ 1 1)
+      | (+ 1 1 1)
 
   p
     | Note that every operator is a function in Scheme (and thus,
     | zepto), so it is always written in prefix notation as opposed
-    | to the infix notation we are used to.
+    | to the infix notation we are used to. This has the benefit of
+    | being able to provide it as much arguments as we want to, e.g. 
+    | for calculating the sum of multiple elements.
 
-  p Let's see this in action on a more complex example:
+  p Let's see zepto in action on a more complex example:
 
   pre
     code(class='language-scheme')
@@ -53,13 +57,13 @@ block wiki
     span: code doc
     | ), which will print the docstring together
     | with the function signature. After that comes the function body. Functions
-    | are always a single instruction, except when they are grouped by 
+    | are always a single statement, except when they are grouped by 
     span: code begin
     | ,
     | which we will discuss later. Here we check whether the number is bigger
     | than 0 and if so, return the number (that is not an operation, so it does
     | not need brackets). If it is not, we are multiplying it with -1 in order
-    | to make it positive. That does need brackets, because it is an instruction.
+    | to make it positive. That does need brackets, because it is a function.
 
   p Bear with me so far? Good. Let us move on then.
 
@@ -67,11 +71,12 @@ block wiki
 
   p
     | Lisp has a famous concept regarding numbers that has found its way
-    | into a lot of different languages, such as Smalltalk. The basic notion
+    | into a lot of different languages, such as Smalltalk and most Lisp-like
+    | languages. The basic notion
     | of numbers in zepto is this: there is the most fundamental number type,
     | which is the integer. You can safely promote it to all kinds of numbers,
     | because they all sit in higher spots in the tower, but you cannot always
-    | safely demote them without losing precision (1.3 is a float that has no
+    | safely demote them without losing precision (e.g. 1.3 is a float that has no
     | equivalent integer). You can call 
     span: code round 
     | and such, but you will lose
@@ -97,11 +102,11 @@ block wiki
     | When a float has hit the fan, it cannot be saved. This essentially 
     | means that 
     span: code(class='language-scheme') (- (+ 1.7e308 0.1e308) 0.1e308)
-    |  will still yield `Infinity`.
+    |  will still yield "Infinity".
 
   p
     | A new concept that zepto introduces is Small Ints, which basically wrap
-    | hardware numbers (so, depending on your machine 32bit or 64bit floats).
+    | hardware numbers (so, depending on your machine 32bit or 64bit ints).
     | That in turn allows for faster number crunching, but also for all the
     | disadvantages that the hardware brings, namely wrap-arounds. If your
     | numbers are getting too big and the hardware cannot display them anymore,
@@ -109,7 +114,7 @@ block wiki
     | be created explicitly by calling 
     span: code(class='language-scheme') (make-small 1)
     | , and I intend to keep
-    | it that way. They can be dangerous, so maybe you should refrain from
+    | it that way. They can be dangerous, so I advise you to refrain from
     | using them extensively unless you have proven that it will help you
     | gain a significant speedup. In the REPL, they are displayed with a
     | trailing 
@@ -159,14 +164,14 @@ block wiki
       | (string->number "400") ; make number from string, can be any number type except small
 
   p
-    | Those are not a lot, but quite a few and certainly enough to do a few basic
+    | Those are not a lot, but certainly enough to do a few basic
     | experiments and probably more.
 
   p
-    | After having those things off the table, let me explain Rationals.
+    | After having discussed those things, let me explain Rationals.
     | They are actually a pretty smart way to overcome a problem as old
-    | as computers - and I am able to say that it is smart, because it is
-    | smart, effective and not my idea. You have actually seen them before,
+    | as computers - I am able to say that it is smart, because it is
+    | easy, effective and not my idea. You have actually seen them before,
     | namely in above list, but probably not recognized as such.
     | In Scheme derivatives, a Rational is represented as two numbers
     | divided by a slash and no spaces, e.g. 
@@ -183,8 +188,10 @@ block wiki
     | skip this section and jump to the next. You're not missing anything
     | major, except if you ever try to calculate the square root of a negative
     | number and expect the program to die.
-    | The Complex type is represented as two numbers, also without spaced,
-    | joined by a plus and with a trailing i, like that: 
+
+  p
+    | The Complex type is represented as two numbers, also without space,
+    | joined by a plus and with a trailing i, such that they look like that: 
     span: code 1+1i
     | . Complex
     | as well as Rationals exist in many languages, the really killer feature
@@ -192,7 +199,7 @@ block wiki
     | citizens.
 
   p
-    | That should be it with the numbers, let's move on to chars and
+    | That should conclude our fiddling with numbers, let's move on to chars and
     | strings.
 
   h2(id='atoms') Atoms & Symbols
@@ -202,7 +209,7 @@ block wiki
     | programmers, albeit for different reasons. But I am getting
     | ahead of myself. First of all, zepto has a basic notion of symbols like any
     | other language in the Lisp realm. This allows for constructs such as
-    span: code(class='language-scheme') (define x 10)
+    span: code(class='language-scheme') (define x "foo")
     |  and the like; in other words, values can be bound to names.
 
   p
@@ -211,8 +218,7 @@ block wiki
     | Now, before any of you Clojure guys jump to conclusions, it is not what you
     | call Atoms. In Clojure and Common Lisp land, this concept is known as Keywords.
     | I simply decided to use them Atoms, because Keywords is a terrible name for that
-    | concept in my opinion. But that is just my personal opinion and you are free to
-    | disagree with me.
+    | concept in my opinion. You are free to disagree with me on that.
 
   p
     | For all of you not familiar with what I just ranted about, Atoms are simply symbols
@@ -225,9 +231,11 @@ block wiki
     | .
     | So why not just use 
     span: code "ok" 
-    | then? Fair enough, that would be possible, but
-    | unelegant and, in zepto, unidiomatic. If you do not feel like arguing with me on
-    | that - and you really should! Don't just drink the Kool-Aid. -, just keep in mind
+    | then? Of course that would be possible, but unelegant and, in zepto, unidiomatic. 
+    | If you feel like arguing with me on that - and you really should! Don't just drink 
+    | the Kool-Aid. -, think of it like that: strings are text, not a notion of something
+    | programmatic. Atoms are essentially facts, strings are not (necessarily).
+    | How to use Atoms then? Just keep in mind
     | that strings are mostly used when we need a textual representation of something.
     | If we need a programmatic representation of some higher level concept, use Atoms.
     | Let me give you a slightly silly example for when to use Atoms:
@@ -263,7 +271,7 @@ block wiki
     span: code quit
     | ) share their syntax with
     | Atoms. They are not the same thing, but they look the same. So typing keywords in the
-    | REPL can differ from a scripts' behaviour (where you have to us 
+    | REPL can differ from a scripts' behaviour (where you have to use 
     span: code(class='language-scheme') (exit) 
     | or 
     span: code(class='language-scheme') (quit) 
