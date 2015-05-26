@@ -167,7 +167,8 @@ h2 {
 	margin-right: 2%;
   }
   #links-right {
-  	right: 4em;
+	top: 5px;
+  	right: 3em;
   }
   #links-right a {
 	padding-left: 1em;
