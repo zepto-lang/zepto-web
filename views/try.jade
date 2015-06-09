@@ -12,8 +12,12 @@ block text
     |     (pow 32 64))
     | 
     |   (main))
-  textarea(id='result' rows="10" cols="50" readonly)
-  textarea(id='dbg' rows="10" cols="50" readonly)
+  .wrap
+    label(for="result") Program Output
+    textarea(id='result' rows="10" cols="50" readonly)
+  .wrap
+    label(for="dbg") Debug Output
+    textarea(id='dbg' rows="10" cols="50" readonly)
 
   link(rel='stylesheet', href='/stylesheets/try.css')
   script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js" charset="utf-8")

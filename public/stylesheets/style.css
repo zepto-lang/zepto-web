@@ -1,7 +1,8 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 15px Helvetica, Arial, sans-serif;
   background-color: #e9efef;
+  font-weight: 300;
 }
 
 a {
@@ -124,7 +125,7 @@ h2 {
 }
 
 .wiki {
-  width: 85%;
+  width: 60%;
 }
 
 .spaced {
@@ -182,6 +183,9 @@ h2 {
     padding: 0;
     transition: width 0.5s;
 	}
+  .wiki {
+    width: 90%;
+  }
 	#responsive-nav {
 		z-index: 2;
 		width: 50px;

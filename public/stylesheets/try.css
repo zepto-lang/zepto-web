@@ -17,10 +17,21 @@
   margin-bottom: 2em;
 }
 
-#output {
-  width: 60em;
+.wrap {
+  display: inline-block
+}
+
+label {
+  display: block;
+  margin-left: 1em;
+  font-family: Helvetica;
+  font-weight: 100;
+}
+
+textarea {
+  width: 30em;
   margin: 1em;
-  height: 5em;
+  height: 10em;
   font-size: 12px;
   background: #fafafa;
   border: 1px solid lightgrey;
