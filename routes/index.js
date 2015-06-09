@@ -14,6 +14,11 @@ router.get('/install', function(req, res, next) {
   res.render('install');
 });
 
+/* GET install. */
+router.get('/try', function(req, res, next) {
+  res.render('try');
+});
+
 /* GET wiki. */
 router.get('/wiki', function(req, res) {
   res.redirect('/wiki/Index');

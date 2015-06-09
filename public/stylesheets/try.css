@@ -1,0 +1,28 @@
+#editor {
+  width: 60em;
+  height: 15em;
+  margin: 1em;
+}
+
+#exec {
+  background: #707070;
+  font-size: 15px;
+  font-family: Helvetica;
+  font-weight: 100;
+  border: none;
+  padding: 0.4em;
+  color: white;
+  margin-left: 44em;
+  display: block;
+  margin-bottom: 2em;
+}
+
+#output {
+  width: 60em;
+  margin: 1em;
+  height: 5em;
+  font-size: 12px;
+  background: #fafafa;
+  border: 1px solid lightgrey;
+  resize: none;
+}
