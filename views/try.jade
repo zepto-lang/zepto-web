@@ -7,28 +7,26 @@ block text
     | Try typing zepto code below and press 'Execute'.
   h2 zepto Sandbox
   #editor
-    | (define (main)
-    |    (display "foobar"))
+    | (begin
+    |   (define (main)
+    |     (pow 32 64))
     | 
-    | (main)
-  input(type='button' id='exec' value='Execute' onclick='zepto.eval()')
-  textarea(id='output' hidden="true" rows="10" cols="50" readonly)
+    |   (main))
+  textarea(id='result' rows="10" cols="50" readonly)
+  textarea(id='dbg' rows="10" cols="50" readonly)
 
   link(rel='stylesheet', href='/stylesheets/try.css')
   script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js" charset="utf-8")
   script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-scheme.js")
   script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-dawn.js")
   script
-    | (function() {
-    |   var editor = ace.edit('editor');
-    |   editor.setTheme('ace/theme/dawn');
-    |   editor.getSession().setMode('ace/mode/scheme');
-    |   editor.getSession().setTabSize(2);
-    |   editor.renderer.setShowGutter(false);
-    | })();
-    | var zepto = {};
-    | zepto.eval = function () {
-    |   var output = document.getElementById('output');
-    |   output.hidden = false;
-    |   output.value = "I am a Mock";
-    | };
+    | var editor = ace.edit('editor');
+    | editor.setTheme('ace/theme/dawn');
+    | editor.getSession().setMode('ace/mode/scheme');
+    | editor.getSession().setTabSize(2);
+    | editor.renderer.setShowGutter(false);
+    | if(typeof Zepto === 'object' && typeof Zepto.Main === 'object' && typeof Zepto.Main.main === 'function') Zepto.Main.main();      
+  script(language="javascript" src="/javascript/zepto-dist/rts.js")
+  script(language="javascript" src="/javascript/zepto-dist/lib.js")
+  script(language="javascript" src="/javascript/zepto-dist/out.js")
+  script(language="javascript" src="/javascript/zepto-dist/runmain.js" defer)

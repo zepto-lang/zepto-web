@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+  </body>
+</html>
+<!DOCTYPE html><html><head><title></title><meta name="viewport" content="width=device-width, initial-scale=1"></head><body><img src="/images/zepto_logo.png" class="banner"><div id="links" class="top"><span id="logo">&zeta;</span><span id="name">zepto</span><div id="links-right"><a href="/">Home</a><a href="/install">Installation</a><a href="/wiki">Wiki</a></div></div><div class="wiki"><h1>Try Zepto!</h1><p> 
+This is a sandbox for programming in zepto for the web.
+Try typing zepto code below and press 'Execute'.</p><h2>zepto Sandbox</h2><div id="editor">(define (main)
+   (display "foobar"))
+    
+    (main)</div><textarea id="result" rows="10" cols="50" readonly></textarea><textarea id="dbg" rows="10" cols="50" readonly></textarea><link rel="stylesheet" href="try.css"><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js" charset="utf-8"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/mode-scheme.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/theme-dawn.js"></script><script>      var editor = ace.edit('editor');
+        editor.setTheme('ace/theme/dawn');
+          editor.getSession().setMode('ace/mode/scheme');
+            editor.getSession().setTabSize(2);
+              editor.renderer.setShowGutter(false);
+              if(typeof Zepto === 'object' && typeof Zepto.Main === 'object' && typeof Zepto.Main.main === 'function') Zepto.Main.main();      
+              </script>
+    <script language="javascript" src="rts.js"></script>
+    <script language="javascript" src="lib.js"></script>
+    <script language="javascript" src="out.js"></script>
+              </div><p class="spaced small middle"> 
+                    Zepto (c) 2015 <a href="https://github.com/hellerve">Veit Heller</a></p><link rel="stylesheet" href="style.css"></body><script language="javascript" src="runmain.js" defer></script></html>

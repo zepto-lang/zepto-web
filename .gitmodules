@@ -1,0 +1,3 @@
+[submodule "public/javascript/zepto-dist"]
+	path = public/javascript/zepto-dist
+	url = https://github.com/zepto-lang/zepto-js-dist
