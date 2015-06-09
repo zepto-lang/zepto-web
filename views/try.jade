@@ -9,9 +9,13 @@ block text
   #editor
     | (begin
     |   ; sorry, but the prelude isn't yet loaded, so I had to redefine all those stdlib functions :(
-    |   (define (not x) (if x #f #t))
-    |   (define (char=? x y) (= (char->integer x) (char->integer y)))
-    |   (define (main)
+    |   (define (not x) "negates the argument" (if x #f #t))
+    | 
+    |   (define (char=? x y) "checks two chars for equality" (= (char->integer x) (char->integer y)))
+    | 
+    |   (define (main) "the main fun"
+    |     ; do not fret, this is just a list comprehension. Look them up in the wiki
+    |     ; or just note that their syntax is [{action} | {element} <- {list} , {optional-filter}]
     |     (list->string 
     |       [x | x <- [#\h #\e #\y #\, #\space #\g #\u #\y #\s #\! #\2], (not (char=? x #\2))]))
     |  
