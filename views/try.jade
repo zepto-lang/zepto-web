@@ -1,6 +1,16 @@
 extends web_tpl
 
 block text
+  script
+    | function stdlib() {
+    |   var htmlDecode = function(input){
+    |     var e = document.createElement('div');
+    |     e.innerHTML = input;
+    |     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+    |   }
+    |   var f = document.getElementById("stdlib-xt");
+    |   document.getElementById('stdlib').stdlibData = htmlDecode(f.contentWindow.document.body.childNodes[0].innerHTML);
+    | }
   h1 Try Zepto!
   p 
     | This is a sandbox for programming in zepto in the browser.
@@ -8,11 +18,6 @@ block text
   h2 zepto Sandbox
   #editor
     | (begin
-    |   ; sorry, but the prelude isn't yet loaded, so I had to redefine all those stdlib functions :(
-    |   (define (not x) "negates the argument" (if x #f #t))
-    | 
-    |   (define (char=? x y) "checks two chars for equality" (= (char->integer x) (char->integer y)))
-    | 
     |   (define (main) "the main fun"
     |     ; do not fret, this is just a list comprehension. Look them up in the wiki
     |     ; or just note that their syntax is [{action} | {element} <- {list} , {optional-filter}]
@@ -26,6 +31,9 @@ block text
   .wrap
     label(for="dbg") Debug Output
     textarea(id='dbg' rows="10" cols="50" readonly)
+  
+  iframe(id="stdlib-xt" src="/javascript/zepto-dist/stdlib.txt" onload="stdlib();" hidden)
+  div(id="stdlib" hidden)
 
   link(rel='stylesheet', href='/stylesheets/try.css')
   script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js" charset="utf-8")
@@ -37,6 +45,7 @@ block text
     | editor.getSession().setMode('ace/mode/scheme');
     | editor.getSession().setTabSize(2);
     | editor.renderer.setShowGutter(false);
+    | 
     | if(typeof Zepto === 'object' && typeof Zepto.Main === 'object' && typeof Zepto.Main.main === 'function') Zepto.Main.main();      
   script(language="javascript" src="/javascript/zepto-dist/rts.js")
   script(language="javascript" src="/javascript/zepto-dist/lib.js")
