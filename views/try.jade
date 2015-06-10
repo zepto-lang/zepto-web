@@ -46,6 +46,11 @@ block text
     | editor.getSession().setTabSize(2);
     | editor.renderer.setShowGutter(false);
     | 
+    | (function(){
+    |   var dbg = document.getElementById('dbg');
+    |   dbg.scrollTop = dbg.scrollHeight;
+    | })();
+    | 
     | if(typeof Zepto === 'object' && typeof Zepto.Main === 'object' && typeof Zepto.Main.main === 'function') Zepto.Main.main();      
   script(language="javascript" src="/javascript/zepto-dist/rts.js")
   script(language="javascript" src="/javascript/zepto-dist/lib.js")
