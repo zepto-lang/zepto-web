@@ -171,6 +171,9 @@ h2 {
 	top: 5px;
   	right: 3em;
   }
+  #home-link {
+    display: none;
+  }
   #links-right a {
 	padding-left: 1em;
 	padding-right: 1em;
