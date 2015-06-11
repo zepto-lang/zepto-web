@@ -16,15 +16,15 @@ block text
     | This is a sandbox for programming in zepto in the browser.
     | Try typing zepto code below. It should update in real time.
   h2 zepto Sandbox
+  p
+    | You can also select an example from below. Hopefully they
+    | will inspire you to do something great!
+  #button-group
+    button(id='default-example' onclick='load("lc", this)' class='examples') List Comprehensions
+    button(onclick='load("aln", this)' class='examples') Arbitrary Length Numbers
+    button(onclick='load("ffi", this)' class='examples') Javascript FFI
+    button(onclick='load("tce", this)' class='examples') Tail Call Elimination
   #editor
-    | (begin
-    |   (define (main) "the main fun"
-    |     ; do not fret, this is just a list comprehension. Look them up in the wiki
-    |     ; or just note that their syntax is [{action} | {element} <- {list} , {optional-filter}]
-    |     (list->string 
-    |       [x | x <- [#\h #\e #\y #\, #\space #\g #\u #\y #\s #\! #\2], (not (char=? x #\2))]))
-    |  
-    |   (main))
   .wrap
     label(for="result") Program Output
     textarea(id='result' rows="10" cols="50" readonly)
@@ -45,6 +45,17 @@ block text
     | editor.getSession().setMode('ace/mode/scheme');
     | editor.getSession().setTabSize(2);
     | editor.renderer.setShowGutter(false);
+    | 
+    | var load = (function() {
+    |    var _examples = { "lc": '(define (main) "the main fun"\n\t; do not fret, this is just a list comprehension. Look them up in the wiki\n\t; or just note that their syntax is [{action} | {element} <- {list} , {optional-filter}]\n\t(list->string \n\t[x | x <- [#\\h #\\e #\\y #\\, #\\space #\\g #\\u #\\y #\\s #\\! #\\2], (not (char=? x #\\2))]))\n\n(main)', "aln": '(define (main) "calculates a *big* number"\n\t(pow 32 6500))\n\n(main)', "ffi": '(define (main) "lets do some inline js"\n\t(begin\n\t[js|\n\t\twindow.foo = function() { /* I am a Javascript function */\n\t\t\tdocument.body.style.backgroundColor = "rgb(250, 0, 250)";\n\t\t\tsetTimeout(function() {\n\t\t\t\tdocument.body.style.backgroundColor = "";\n\t\t\t}, 1500);\n\t\t};\n\t|]\n\t(js "foo()")))\n(main)', "tce": '(define (fact n p) "the dumbest factorial function in the world, but tail recursive"\n\t(if (<= n 1)\n\t\tp\n\t\t(fact (- n 1) (* p n))))\n\n(define (main)\n(fact 50 1))\n\n(main)' };
+    |   var _prev = null;
+    |   return function(t, firer) {
+    |     if(_prev) _prev.className = "examples";
+    |     _prev = firer;
+    |     _prev.className = "examples clicked";
+    |     editor.getSession().setValue(_examples[t]);
+    |   };})();
+    |   load("lc", document.getElementById('default-example'));
     | 
     | if(typeof Zepto === 'object' && typeof Zepto.Main === 'object' && typeof Zepto.Main.main === 'function') Zepto.Main.main();      
   script(language="javascript" src="/javascript/zepto-dist/rts.js")

@@ -4,7 +4,7 @@
   margin: 1em;
 }
 
-#exec {
+.examples {
   background: #707070;
   font-size: 15px;
   font-family: Helvetica;
@@ -12,9 +12,8 @@
   border: none;
   padding: 0.4em;
   color: white;
-  margin-left: 44em;
-  display: block;
-  margin-bottom: 2em;
+  margin-left: 1em;
+  margin-bottom: 1em;
 }
 
 .wrap {
