@@ -24,6 +24,8 @@ block text
     button(onclick='load("aln", this)' class='examples') Arbitrary Length Numbers
     button(onclick='load("ffi", this)' class='examples') Javascript FFI
     button(onclick='load("tce", this)' class='examples') Tail Call Elimination
+    button(onclick='load("ms", this)' class='examples') Mutable State
+    button(onclick='load("nt", this)' class='examples') Full Numeric Tower
   #editor
   .wrap
     label(for="result") Program Output
@@ -47,7 +49,7 @@ block text
     | editor.renderer.setShowGutter(false);
     | 
     | var load = (function() {
-    |    var _examples = { "lc": '(define (main) "the main fun"\n\t; do not fret, this is just a list comprehension. Look them up in the wiki\n\t; or just note that their syntax is [{action} | {element} <- {list} , {optional-filter}]\n\t(list->string \n\t[x | x <- [#\\h #\\e #\\y #\\, #\\space #\\g #\\u #\\y #\\s #\\! #\\2], (not (char=? x #\\2))]))\n\n(main)', "aln": '(define (main) "calculates a *big* number"\n\t(pow 32 6500))\n\n(main)', "ffi": '(define (main) "lets do some inline js"\n\t(begin\n\t[js|\n\t\twindow.foo = function() { /* I am a Javascript function */\n\t\t\tdocument.body.style.backgroundColor = "rgb(250, 0, 250)";\n\t\t\tsetTimeout(function() {\n\t\t\t\tdocument.body.style.backgroundColor = "";\n\t\t\t}, 1500);\n\t\t};\n\t|]\n\t(js "foo()")))\n(main)', "tce": '(define (fact n p) "the dumbest factorial function in the world, but tail recursive"\n\t(if (<= n 1)\n\t\tp\n\t\t(fact (- n 1) (* p n))))\n\n(define (main)\n(fact 50 1))\n\n(main)' };
+    |    var _examples = { "lc": '(define (main) "the main fun"\n\t; do not fret, this is just a list comprehension. Look them up in the wiki\n\t; or just note that their syntax is [{action} | {element} <- {list} , {optional-filter}]\n\t(list->string\n\t\t[x | x <- [#\\h #\\e #\\y #\\, #\\space #\\g #\\u #\\y #\\s #\\! #\\2], (not (char=? x #\\2))]))\n\n(main)', "aln": '(define (main) "calculates a *big* number"\n\t(pow 32 6500))\n\n(main)', "ffi": '(define (main) "lets do some inline js"\n\t(begin\n\t[js|\n\t\twindow.foo = function() { /* I am a Javascript function */\n\t\t\tdocument.body.style.backgroundColor = "rgb(250, 0, 250)";\n\t\t\tsetTimeout(function() {\n\t\t\t\tdocument.body.style.backgroundColor = "";\n\t\t\t}, 1500);\n\t\t};\n\t|]\n\t(js "foo()")))\n(main)', "tce": '(define (fact n p) "the dumbest factorial function in the world, but tail recursive"\n\t(if (<= n 1)\n\t\tp\n\t\t(fact (- n 1) (* p n))))\n\n(define (main)\n(fact 1000 1))\n\n(main)', "ms": '(define (main) "lets use mutable vars; note that were impure here, though"\n\t(let ((x 1)\n\t\t\t (str ""))\n\t(begin\n\t\t(set! str (++ str "before: " (number->string x)))\n\t\t(set! x 100)\n\t\t(++ str "; after: " (number->string x)))))\n(main)', "nt": '(define (main) "a walk through the full numeric tower"\n\t; complex <- float <- rational <- integer <- small-int\n\t(sqrt (exact->inexact (* 1/1 (* 1 (make-small -1))))))\n\n; explanation of small-int:\n; the small is a dangerous type; it is not of arbitrary precision;\n; it is just a wrapper over hardware numbers, which makes it fast\n; but wrap around at some point\n; try running (make small (+ 1 (pow 2 31))) and see what happens\n(main)'};
     |   var _prev = null;
     |   return function(t, firer) {
     |     if(_prev) _prev.className = "examples";
