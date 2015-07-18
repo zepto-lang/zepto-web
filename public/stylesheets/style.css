@@ -209,3 +209,12 @@ h2 {
   		border-bottom: 0.25em solid #006f99;
 	}
 }
+
+@media (max-width: 700px) {
+  .banner {
+    margin-left: auto;
+  }
+  .wiki {
+    margin-left: auto;
+  }
+}
