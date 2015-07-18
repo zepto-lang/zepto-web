@@ -118,6 +118,7 @@ h2 {
 
 .banner {
   width: 300px;
+  margin-left: calc(50% - 150px);
 }
 
 .text {
@@ -126,6 +127,7 @@ h2 {
 
 .wiki {
   width: 60%;
+  margin-left: 20%;
 }
 
 .spaced {

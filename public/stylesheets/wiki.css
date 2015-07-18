@@ -1,3 +1,11 @@
+.banner {
+  margin-left: auto !important;
+}
+
+.wiki {
+  margin-left: 0px !important;
+}
+
 .wiki {
   width: 80% !important;
 }
