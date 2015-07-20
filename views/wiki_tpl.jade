@@ -2,7 +2,7 @@ extends web_tpl
 
 block text
   .top-right#responsive-nav(onclick="displayNav()")
-    span &#9776;
+    i(class="fa fa-bars")
   .top-right#nav
     h2 Navigation
     a(href='/') Home 
@@ -29,6 +29,7 @@ block text
   
   link(rel='stylesheet', href='/stylesheets/prism.css')
   link(rel='stylesheet', href='/stylesheets/wiki.css')
+  link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
   script(src='/javascript/prism.js')
   script(src='/javascript/wiki.js')
 
