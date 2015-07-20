@@ -201,12 +201,9 @@ h2 {
 	height: 50px;
 	display: block;
   	padding-left: 1.25em;
-  }
-  #responsive-nav:before {
-  	content: "";
-  	position: absolute;
-  	top: 1em;
-  	left: 2em;
+  	padding-top: 0.6em;
+  	font-size: 20px;
+  	color: #006f99;
   }
 }
 
