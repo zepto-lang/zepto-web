@@ -26,6 +26,17 @@ h2 {
   font-size: 20px;
 }
 
+.links-hidden {
+  opacity: 0;
+  transform: translate(0, -5em);
+  transition: transform 1s,background 1.5s,color 1.5s,opacity 0 1.5s;
+}
+
+.links-visible {
+  opacity: 1;
+  transform: translate(0,0);
+}
+
 .fit-img {
   max-height: 100%;
   max-width: auto;
@@ -39,6 +50,7 @@ h2 {
 }
 
 .top {
+  transition: transform 1s, height 1s, background 1.5s, opacity 1s;
   position:fixed;
   top:0px;
   left: 0px;
