@@ -1,3 +1,24 @@
+#links {
+  background-color: white !important;
+  height: 1em;
+}
+
+#links #logo {
+  color: #777 !important;
+}
+
+#links span {
+  color: #708092 !important;
+}
+
+#links-right a {
+  color: #607082 !important;
+}
+
+#links-right a:hover {
+  color: #8090A2 !important;
+}
+
 .banner {
   margin-left: auto !important;
 }
@@ -15,6 +36,40 @@
   margin-bottom: 1em;
   padding-bottom: 0.3em;
   border-bottom: 1px solid grey;
+}
+
+#nav {
+  margin-top: calc(5em + 1px);
+  width: 200px;
+  height: 100%;
+  border-left: 1px solid lightgrey;
+  padding: 0.8em;
+  background-color: #fff;
+  transition: width 1s;
+  z-index: 3;
+}
+
+#responsive-nav {
+	display: none;
+}
+
+#nav a {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+#nav-list {
+  list-style: none;
+  padding: 0;
+}
+
+#nav-list li {
+  padding-top: 0.5em;
+  padding-left: 0.1em;
+}
+
+#nav-list li a {
+  padding-left: 1em;
 }
 
 p {

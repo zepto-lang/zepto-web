@@ -1,5 +1,6 @@
 body {
   padding: 50px;
+  padding-top: 6em;
   font: 15px Helvetica, Arial, sans-serif;
   background-color: #e9efef;
   font-weight: 300;
@@ -45,27 +46,27 @@ h2 {
 
 #links {
   margin: 0;
-  background: #f9f9f9;
+  background: #000;
   width: 100%;
-  padding-top: 1.2em;
-  padding-bottom: 1.2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
   border: 1px solid lightgrey;
   z-index: 2;
 }
 
 #links span {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 #links #logo {
-  margin-left: 15%;
+  margin-left: 10%;
   margin-right: 0.7em;
   font-family: sans-serif;
-  color: #505050;
+  color: #ddd;
 }
 
 #links #name {
-  color: #506072;
+  color: #A0B0C2;
   margin-right: 20%;
 }
 
@@ -74,49 +75,20 @@ h2 {
   top: 0px;
   right: 10%;
   padding: 0.5%;
-  padding-top: 1.3em;
-  padding-bottom: 1.2em;
+  padding-top: 2.3em;
+  padding-bottom: 2em;
 }
 
 #links-right a {
   width: 100%;
-  font-size: 14px;
+  font-size: 15px;
   padding-left: 2em;
   padding-right: 2em;
+  color: #bbb;
 }
 
-#nav {
-  margin-top: 58px;
-  width: 200px;
-  height: 100%;
-  border-left: 1px solid lightgrey;
-  padding: 0.8em;
-  background-color: #f9f9f9;
-  transition: width 1s;
-  z-index: 3;
-}
-
-#responsive-nav {
-	display: none;
-}
-
-#nav a {
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-#nav-list {
-  list-style: none;
-  padding: 0;
-}
-
-#nav-list li {
-  padding-top: 0.5em;
-  padding-left: 0.1em;
-}
-
-#nav-list li a {
-  padding-left: 1em;
+#links-right a:hover {
+  color: #eee;
 }
 
 .banner {
