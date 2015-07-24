@@ -38,13 +38,17 @@
   border-bottom: 1px solid grey;
 }
 
-#nav {
-  margin-top: 5em;
+#nav,
+.back-fix {
   width: 200px;
   height: 100%;
   border-left: 1px solid lightgrey;
-  padding: 0.8em;
   background-color: #fff;
+  padding: 0.8em;
+}
+
+#nav {
+  margin-top: 5em;
   transition: width 1s;
   z-index: 3;
 }
@@ -76,6 +80,11 @@ p {
   font-size: 17px;
 }
 
+@media (max-width: 1000px) {
+ .back-fix {
+   display: none;
+ }
+}
 @media (max-width: 700px) {
   .wiki {
     width: 100% !important;
