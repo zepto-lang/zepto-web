@@ -40,3 +40,4 @@ header = (function() {
 })();
 
 var _x = new header(document.getElementById('links'));
+var _y = new header(document.getElementById('responsive-nav'));
