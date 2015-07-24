@@ -1,35 +1,41 @@
 header = (function() {
-  var that;
-  header = function(el) {
+  header = function(el, cls) {
+    if (!el) return;
     this.el = el;
+    this.cls = cls;
     this.latestScrollY = 0;
     this.previousY = 0;
     this.minScrollHeight = el.clientHeight;
-    window.onscroll = this._onScroll.bind(this);
-    that = this;
+    if (!window.onscroll) {
+      window.onscroll = this._onScroll.bind(this);
+    } else {
+      var old = window.onscroll;
+      var that = this;
+      window.onscroll = function() { that._onScroll(); old(); };
+    }
   }
 
   header.prototype._onScroll = function() {
-      that.previousY = that.latestScrollY;
-      that.latestScrollY = that._getY();
-      that._update.bind(that)();
+      this.previousY = this.latestScrollY;
+      this.latestScrollY = this._getY();
+      this._update.bind(this)();
   };
 
   header.prototype._show = function() {
-      that.el.className = "links-visible top";
+      this.el.className = "links-visible " + this.cls;
   };
 
   header.prototype._hide = function() {
-      that.el.className = "links-hidden top";
+      this.el.className = "links-hidden " + this.cls;
   };
 
   header.prototype._update = function() {
-    if(that.latestScrollY > that.minScrollHeight) {
-      if (that.latestScrollY < that.previousY) that._show();
-      else that._hide();
+    if(this.latestScrollY > this.minScrollHeight) {
+      if (this.latestScrollY < this.previousY) this._show();
+      else this._hide();
     }
 
-    if (that.latestScrollY <= 0) that.el.className = "top";
+    if (this.latestScrollY <= 0) this.el.className = this.cls;
   }
 
   header.prototype._getY = function() {
@@ -39,5 +45,5 @@ header = (function() {
   return header;
 })();
 
-var _x = new header(document.getElementById('links'));
-var _y = new header(document.getElementById('responsive-nav'));
+var _x = new header(document.getElementById('links'), "top");
+var _y = new header(document.getElementById('responsive-nav'), "top-right");

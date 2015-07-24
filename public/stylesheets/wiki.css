@@ -39,7 +39,7 @@
 }
 
 #nav {
-  margin-top: calc(5em + 1px);
+  margin-top: 5em;
   width: 200px;
   height: 100%;
   border-left: 1px solid lightgrey;
