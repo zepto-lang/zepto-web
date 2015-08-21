@@ -73,7 +73,7 @@ block text
     |     editor.getSession().setValue(_examples[t]);
     |   };})();
     |   load("lc", document.getElementById('default-example'));
-    | 
+    | editor.setReadOnly(true);
     | if(typeof Zepto === 'object' && typeof Zepto.Main === 'object' && typeof Zepto.Main.main === 'function') Zepto.Main.main();      
   script(language="javascript" src="/javascript/zepto-dist/rts.js" defer)
   script(language="javascript" src="/javascript/zepto-dist/lib.js" defer)
